@@ -1,0 +1,9 @@
+{
+	"name": "fieldengdeveastus2adf",
+	"location": "eastus2",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "83e3713c-c280-4526-8484-b440d26a395e",
+		"tenantId": "9f37a392-f0ae-4280-9796-f1864a10effc"
+	}
+}

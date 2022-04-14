@@ -1,0 +1,17 @@
+{
+	"name": "tripdatadeltatable",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfcopydemodelta",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLakeDataset",
+		"typeProperties": {
+			"database": "adf_taxi_demo",
+			"table": "tripdata"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

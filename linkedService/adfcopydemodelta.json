@@ -1,0 +1,20 @@
+{
+	"name": "adfcopydemodelta",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureDatabricksDeltaLake",
+		"typeProperties": {
+			"domain": "https://adb-2798386718567310.10.azuredatabricks.net",
+			"clusterId": "1218-172959-nwg5w097",
+			"accessToken": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "adfcopydemoakv",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "databricks-token"
+			}
+		}
+	}
+}
