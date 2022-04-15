@@ -15,7 +15,7 @@
 5. Create Azure Databricks PAT Token and save value to databricks-token secret in your Azure Key Vault
 6. Get connection string for you Azure Blob Storage account and save value to storage-connstring secret in your Azure Key vault.
 7. Create a secret scope in Azure Databricks workspace linked to Azure Key Vault
-8. Setup Azure Databricks demo cluster with Spark configuration your Blob Storage account key using Azure Key Vault backed secret scope to the databricks-token secret: <br>
+8. Setup Azure Databricks demo cluster with Spark configuration your Blob Storage account key using Azure Key Vault backed secret scope to the databricks-token secret (replacing the correct names in the example below): <br>
   fs.azure.account.key.yourblobstorageaccountname.blob.core.windows.net {{secrets/yoursecretscopename/databricks-token}} <br>
 9. Create adfdemo container in Azure Blob Storage account
 10. Run ADF Delta Lake Copy Demo Setup notebook in Datbricks using demo cluster to load your input file to Blob Storage and create the primary Delta Lake table.
