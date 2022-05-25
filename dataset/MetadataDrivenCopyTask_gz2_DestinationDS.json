@@ -1,0 +1,43 @@
+{
+	"name": "MetadataDrivenCopyTask_gz2_DestinationDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fieldengdeveastus2sa",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"cw_fileName": {
+				"type": "String"
+			},
+			"cw_folderPath": {
+				"type": "Object"
+			},
+			"cw_container": {
+				"type": "String"
+			}
+		},
+		"folder": {
+			"name": "MetadataDrivenCopyTask_gz2_20220525"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().cw_fileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().cw_folderPath",
+					"type": "Expression"
+				},
+				"container": {
+					"value": "@dataset().cw_container",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": {}
+	}
+}
