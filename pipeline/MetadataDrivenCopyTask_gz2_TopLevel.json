@@ -97,6 +97,26 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "ingest-databricks",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "CopyBatchesOfObjectsSequentially",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "ingest-databricks",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
 			}
 		],
 		"parameters": {
