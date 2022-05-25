@@ -1,0 +1,19 @@
+{
+	"name": "customerblob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adfcopydemosa",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "demo.json",
+				"container": "demo"
+			}
+		},
+		"schema": {}
+	}
+}
