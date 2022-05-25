@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "fieldengdeveastus2adf"
 		},
+		"fieldengdeveastus2adb_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'fieldengdeveastus2adb'"
+		},
 		"fieldengdeveastus2adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'fieldengdeveastus2adls'"
@@ -720,6 +724,27 @@
 								}
 							]
 						}
+					},
+					{
+						"name": "ingest-databricks",
+						"type": "ExecutePipeline",
+						"dependsOn": [
+							{
+								"activity": "CopyBatchesOfObjectsSequentially",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"pipeline": {
+								"referenceName": "ingest-databricks",
+								"type": "PipelineReference"
+							},
+							"waitOnCompletion": true,
+							"parameters": {}
+						}
 					}
 				],
 				"policy": {
@@ -749,7 +774,45 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/MetadataDrivenCopyTask_gz2_ControlDS')]",
+				"[concat(variables('factoryId'), '/pipelines/ingest-databricks')]",
 				"[concat(variables('factoryId'), '/pipelines/MetadataDrivenCopyTask_gz2_MiddleLevel')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ingest-databricks')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "ingest-sales",
+						"type": "DatabricksNotebook",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/dale.michalk@databricks.com/fedex-adf-demo/adf-ingest-demo"
+						},
+						"linkedServiceName": {
+							"referenceName": "fieldengdeveastus2adb",
+							"type": "LinkedServiceReference"
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {},
+					"cancelAfter": {}
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/fieldengdeveastus2adb')]"
 			]
 		},
 		{
@@ -887,6 +950,24 @@
 				"typeProperties": {
 					"serviceEndpoint": "[parameters('adfcopydemosa_properties_typeProperties_serviceEndpoint')]",
 					"accountKind": "StorageV2"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/fieldengdeveastus2adb')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureDatabricks",
+				"typeProperties": {
+					"domain": "https://adb-2798386718567310.10.azuredatabricks.net",
+					"accessToken": {
+						"type": "SecureString",
+						"value": "[parameters('fieldengdeveastus2adb_accessToken')]"
+					},
+					"existingClusterId": "1218-172959-nwg5w097"
 				}
 			},
 			"dependsOn": []

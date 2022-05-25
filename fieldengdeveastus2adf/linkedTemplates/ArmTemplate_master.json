@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "fieldengdeveastus2adf"
 		},
+		"fieldengdeveastus2adb_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'fieldengdeveastus2adb'"
+		},
 		"fieldengdeveastus2adls_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'fieldengdeveastus2adls'"
@@ -53,6 +57,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"fieldengdeveastus2adb_accessToken": {
+						"value": "[parameters('fieldengdeveastus2adb_accessToken')]"
 					},
 					"fieldengdeveastus2adls_accountKey": {
 						"value": "[parameters('fieldengdeveastus2adls_accountKey')]"

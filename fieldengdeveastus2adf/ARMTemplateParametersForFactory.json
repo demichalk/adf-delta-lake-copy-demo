@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "fieldengdeveastus2adf"
 		},
+		"fieldengdeveastus2adb_accessToken": {
+			"value": ""
+		},
 		"fieldengdeveastus2adls_accountKey": {
 			"value": ""
 		},
