@@ -5,8 +5,20 @@
 		"factoryName": {
 			"value": "fieldengdeveastus2adf"
 		},
+		"fieldengdeveastus2adls_accountKey": {
+			"value": ""
+		},
+		"fieldengdeveastus2sa_connectionString": {
+			"value": ""
+		},
+		"fieldengdeveastus2sqlsrvadventureworks_connectionString": {
+			"value": ""
+		},
 		"adfcopydemosa_properties_typeProperties_serviceEndpoint": {
 			"value": "https://fieldengdeveastus2sa.blob.core.windows.net"
+		},
+		"fieldengdeveastus2adls_properties_typeProperties_url": {
+			"value": "https://fieldengdeveastus2adls.dfs.core.windows.net"
 		}
 	}
 }
