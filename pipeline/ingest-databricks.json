@@ -1,0 +1,28 @@
+{
+	"name": "ingest-databricks",
+	"properties": {
+		"activities": [
+			{
+				"name": "ingest-sales",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/dale.michalk@databricks.com/fedex-adf-demo/adf-ingest-demo"
+				},
+				"linkedServiceName": {
+					"referenceName": "fieldengdeveastus2adb",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
