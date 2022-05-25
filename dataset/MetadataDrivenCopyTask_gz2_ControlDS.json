@@ -1,0 +1,19 @@
+{
+	"name": "MetadataDrivenCopyTask_gz2_ControlDS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fieldengdeveastus2sqlsrvadventureworks",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "MetadataDrivenCopyTask_gz2_20220525"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "adfmetadata",
+			"table": "MainControlTable_gz2"
+		}
+	}
+}
